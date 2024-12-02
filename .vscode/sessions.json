@@ -7,50 +7,35 @@
   "sessions": {
     "default": [
       {
-        "name": "hello",
+        "name" : "🛒Shopify",
         "autoExecuteCommands": true,
-        "icon": "person",
-        "color": "terminal.ansiGreen",
+        "icon" : "code",
         "commands": [
-          "echo hello"
+          "shopify theme pull"
         ]
       },
-      [
-        {
-          "name": "docker:ros",
-          "commands": [
-            ""
-          ]
-        },
-        {
-          "name": "docker:k8s",
-          "commands": [
-            ""
-          ]
-        }
-      ],
-      [
-        {
-          "name": "docker:nats",
-          "commands": [
-            ""
-          ]
-        },
-        {
-          "name": "docker:fleet",
-          "commands": [
-            ""
-          ]
-        }
-      ]
-    ],
-    "saved-session": [
       {
-        "name": "connect",
+        "name": "Git",
+        "autoExecuteCommands": true,
+        "icon": "logo-github",
+        "color": "terminal.ansiYellow",
         "commands": [
-          ""
+          "git pull"
+        ]
+      },
+     
+      {
+        "name" : "Linux",
+        "autoExecuteCommands": true,
+        "icon": "terminal-linux",
+        "color" :"terminal.ansiGreen",
+        "commands": [
+          "pmd"
         ]
       }
+      
+
+    
     ]
   }
 }

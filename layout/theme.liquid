@@ -10,71 +10,8 @@
   {{ content_for_header }} <!-- Header hook for plugins -->
 </head>
 <body>
-  <style>
-    .all-cards{
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      .card-wrapper{
-        width: 300px;
-        height: fit-content;
-        background-color: white;
-        margin: 10px;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        padding: 20px;
-        ;
-        .card-title{
-          font-size: 20px;
-          margin: 0;
-          color: #2e2b5f;
-        }
-        .card-img{
-        aspect-ratio: 1/1;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        margin-bottom: 15px;;
-        }
-        .card-description{
-          font-size: 16px;
-          margin: 0;
-        text-align: justify;
-        }
-        .card-price{
-          margin: 0;
-          color: rgb(54, 54, 100);
-          justify-self: center;
-        }
-      }
-    }
-
-  </style>
   <main role="main">
     {{ content_for_layout }}
-  
-    <div class="all-cards">
-      {% for product in collections.all.products %}
-        <div class="card-wrapper">
-          <img class="card-img" src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }} " width="auto" height="auto">
-          <h3 class="card-title">{{ product.title }}</h3>
-          <p  class="card-description">{{ product.description }}</p>
-          <h3 class= "card-price" >{{product.price | money }}</h3>
-        </div>
-      {% endfor %}  
-    </div>
-    <div class="all-cards">
-
-    {% for product in collections.all.products %}
-        <div class="card-wrapper">
-          <img class="card-img" src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }} " width="auto" height="auto">
-          <h3 class="card-title">{{ product.title }}</h3>
-          <p  class="card-description">{{ product.description }}</p>
-          <h3 class= "card-price" >{{product.price | money }}</h3>
-        </div>
-      {% endfor %}  
-    </div>
    
 
     {% form 'contact' %}
