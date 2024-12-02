@@ -9,17 +9,17 @@
  */
 {
   "sections": {
-    "main-index-section": {
-      "type": "example-section",
-      "settings": {}
-    },
     "example-section": {
       "type": "main-index",
+      "settings": {}
+    },
+    "main-index-section": {
+      "type": "example-section",
       "settings": {}
     }
   },
   "order": [
-    "main-index-section",
-    "example-section"
+    "example-section",
+    "main-index-section"
   ]
 }
