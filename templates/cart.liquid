@@ -16,7 +16,7 @@
                 <img 
                   src="{{ item | image_url: 'medium' }}" 
                   alt="{{ item.title | escape }}" 
-                  loading="eager"
+                  loading="lazy"
                   width="auto"
                   height="auto"
                 >
@@ -43,7 +43,7 @@
     <div>
       <p>sub total : {{ cart.total_price | money }}</p>
       <button type="submit" name="update">Update</button>
-      <button type="submit" name="checkout">Chec|||||kout</button>
+      <button type="submit" name="checkout">Checkout</button>
     </div>
   </form>
 {% else %}
