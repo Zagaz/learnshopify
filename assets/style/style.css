@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", "Arial", "Helvetica", "sans-serif";
+  font-weight: 700;
+  color: #333;
+}
+
+p {
+  font-family: "Roboto", "Arial", "Helvetica", "sans-serif";
+  font-weight: 400;
+  color: #333;
+}/*# sourceMappingURL=style.css.map */
