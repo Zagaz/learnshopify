@@ -3,17 +3,40 @@
 font-family: 'Roboto', sans-serif;
     }
     .cards-container{
-      display: flex;
-
-   
-      justify-content: space-around;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
     }
-
     .card{
-      min-width: 300px;
-      max-width: 350px;
+      border: 1px solid #e0e0e0;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .card img{
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .card-title{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card-description{
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .card-price{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card-button-wrapper{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
     }
     .card-button{
+      background-color: #065c46;
+      color: white;
       border: none;
       text-align: center;
       text-decoration: none;
@@ -24,44 +47,34 @@ font-family: 'Roboto', sans-serif;
       border-radius: 5px;
       padding: 10px 24px;
       font-family: 'Roboto', sans-serif;
-      color: white;
     }
-    .card-button-wrapper{
+    .add-cart-wrapper{
+      display: none;
+    }
+    .card-button.add-cart{
+      display: none;
+    }
+    .card-button.view-products{
+      display: inline-block;
+    }
+    .card:hover .add-cart-wrapper{
+      display: block;
+    }
 
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .add-cart{
-      background-color: #065c46 !important;
-    }
-    .view-products{
-      background-color: #282630 !important;
-    }
-    form{
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-    }
 {% endstyle %}
 
 {% comment %} Number of pages is odd num_page -1 {% endcomment %}
  
- {%  assign num_pages =   2 %}
+ {%  assign num_pages =   6 %}
  
- {% if num_pages < 3 %}
-  
-  {% assign num_pages =   3 %}
-  
-  {% endif %}
+
 
   <div class="collection-alpha">
 
     <div class="container">
     
       <div class="cards-container">
-      {% paginate collections.all.products by num_pages %}
+      {% paginate collections.all.products by 6%}
       
         {% for product in collections.all.products %}
           <div class="card">
@@ -79,7 +92,7 @@ font-family: 'Roboto', sans-serif;
               </div>
                 {% comment %} view product {% endcomment %}
       
-      
+
               </form>
       
       
