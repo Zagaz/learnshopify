@@ -1,0 +1,21 @@
+.button{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 24px;
+    font-family: 'Roboto', sans-serif;
+
+    &.primary{
+        background-color: #007bff;
+        color: white;
+    }
+    &.secondary{
+        background-color: #6c757d;
+        color: white;
+    }
+  }

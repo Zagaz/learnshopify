@@ -1,20 +1,7 @@
 {%  style  %} 
   
 
-    .button{
-      background-color: yellow;
-      color: white;
-      border: none;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 5px;
-      padding: 10px 24px;
-      font-family: 'Roboto', sans-serif;
-    }
+
 
 {% endstyle %}
 
@@ -33,10 +20,10 @@
             <p  class="card-description">{{ product.description }}</p>
             <h3 class="card-price" > {{ product.price | money }}</h3>
             <div class="card-buttons-wrapper">
-              <a href="{{ product.url }}" class="button view-product">View Product</a>
+              <a href="{{ product.url }}" class="button secondary view-product">View Product</a>
               <div class="add-cart-wrapper">
                 <div class="bt-add-cart">
-                  <a href="{{ product.url }}" class="button add-cart">Add to Cart</a>
+                  <a href="{{ product.url }}" class="button primary add-cart">Add to Cart</a>
               </div>
               </div>
             </div>
