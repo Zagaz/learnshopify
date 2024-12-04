@@ -1,41 +1,8 @@
 {%  style  %} 
-    main{
-font-family: 'Roboto', sans-serif;
-    }
-    .cards-container{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-    }
-    .card{
-      border: 1px solid #e0e0e0;
-      padding: 20px;
-      border-radius: 5px;
-    }
-    .card img{
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .card-title{
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .card-description{
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-    .card-price{
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .card-button-wrapper{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-    .card-button{
-      background-color: #065c46;
+  
+
+    .button{
+      background-color: yellow;
       color: white;
       border: none;
       text-align: center;
@@ -47,18 +14,6 @@ font-family: 'Roboto', sans-serif;
       border-radius: 5px;
       padding: 10px 24px;
       font-family: 'Roboto', sans-serif;
-    }
-    .add-cart-wrapper{
-      display: none;
-    }
-    .card-button.add-cart{
-      display: none;
-    }
-    .card-button.view-products{
-      display: inline-block;
-    }
-    .card:hover .add-cart-wrapper{
-      display: block;
     }
 
 {% endstyle %}
@@ -78,14 +33,12 @@ font-family: 'Roboto', sans-serif;
             <p  class="card-description">{{ product.description }}</p>
             <h3 class="card-price" > {{ product.price | money }}</h3>
             <div class="card-buttons-wrapper">
-              <div class="button-add-cart">
-               
+              <a href="{{ product.url }}" class="button view-product">View Product</a>
+              <div class="add-cart-wrapper">
+                <div class="bt-add-cart">
+                  <a href="{{ product.url }}" class="button add-cart">Add to Cart</a>
               </div>
-              <div class="card-button-wrapper">
-                <a href="{{ product.url }}" class="card-button view-products">View Product</a>
-
               </div>
-            
             </div>
           </div>
         {% endfor %}
