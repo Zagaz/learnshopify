@@ -1,0 +1,71 @@
+@mixin clamp-lines($lines) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+  }
+
+
+
+.card{
+  // shadow
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    .card-img{
+      width: 100%;
+      aspect-ratio: 1/1;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+    }
+    .card-title{
+      width: inherit;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+
+    }
+    .card-description{
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .card-price{
+      font-size: 1.5rem;
+      font-weight: 700;
+      align-self: center;
+      margin-bottom: 20px;
+    }
+    .card-buttons-wrapper{
+      display: flex;
+      justify-content: space-between;
+    }
+
+    p {
+
+        @include clamp-lines(4);
+
+      }
+      .card-buttons-wrapper{
+        display: flex;
+        justify-content: space-between;
+      }
+
+
+    &.vertical{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+    
+    }
+  
+  }

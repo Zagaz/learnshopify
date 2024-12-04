@@ -1,38 +1,27 @@
-{%  style  %} 
-  
-
-
-
-{% endstyle %}
-
-{% comment %} Number of pages is odd num_page -1 {% endcomment %}
- 
- {%  assign num_pages =   6 %}
-  <div class="collection-alpha">
     <div class="container">
       <div class="cards-container">
-      {% paginate collections.all.products by 6%}
+
+      {% paginate collections.all.products by ver%}
       
         {% for product in collections.all.products %}
-          <div class="card">
-            <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}" width="" height="">
+          <div class="card vertical">
+            <img class="card-img" src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}" width="" height="">
             <h2 class="card-title">{{ product.title }}</h2>
             <p  class="card-description">{{ product.description }}</p>
             <h3 class="card-price" > {{ product.price | money }}</h3>
             <div class="card-buttons-wrapper">
-              <a href="{{ product.url }}" class="button info view-product">
-                
-              <i class="fa-solid fa-magnifying-glass"></i>
-             Details</a>
-              <div class="add-cart-wrapper">
+
+              <a href="{{ product.url }}" class="button info view-product"> <i class="fa-solid fa-magnifying-glass"></i> Details</a>
+              
                 <div class="bt-add-cart">
-                  <a href="{{ product.url }}" class="button success add-cart">
-                    <i class="fa-solid fa-cart-plus"></i>
+                  <form action="/cart/add" method="post">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+               <button type="submit" class="button success add-cart"><i class="fa-solid fa-shopping-cart"></i> Buy</button>
                     
-                    
-                </a>
+                  </form>
+                  
               </div>
-              </div>
+         
             </div>
           </div>
         {% endfor %}
@@ -40,7 +29,7 @@
       </div>
     </div>
 
-  </div>
+
   
 
     
