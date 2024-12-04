@@ -20,10 +20,17 @@
             <p  class="card-description">{{ product.description }}</p>
             <h3 class="card-price" > {{ product.price | money }}</h3>
             <div class="card-buttons-wrapper">
-              <a href="{{ product.url }}" class="button secondary view-product">View Product</a>
+              <a href="{{ product.url }}" class="button info view-product">
+                
+              <i class="fa-solid fa-magnifying-glass"></i>
+             Details</a>
               <div class="add-cart-wrapper">
                 <div class="bt-add-cart">
-                  <a href="{{ product.url }}" class="button primary add-cart">Add to Cart</a>
+                  <a href="{{ product.url }}" class="button success add-cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    
+                    
+                </a>
               </div>
               </div>
             </div>

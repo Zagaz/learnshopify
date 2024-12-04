@@ -1,3 +1,4 @@
+@import 'colors';
 .button{
     border: none;
     text-align: center;
@@ -11,11 +12,36 @@
     font-family: 'Roboto', sans-serif;
 
     &.primary{
-        background-color: #007bff;
+        background-color: $primary;
         color: white;
     }
     &.secondary{
-        background-color: #6c757d;
+        background-color: $danger;
         color: white;
     }
+    &.success{
+        background-color: $success;
+        color: white;
+    }
+    &.danger{
+        background-color: $danger;
+        color: white;
+    }
+    &.warning{
+        background-color: $warning;
+        color: white;
+    }
+    &.info{
+        background-color: $info;
+        color: white;
+    }
+    &.light{
+        background-color: $light;
+        color: white;
+    }
+    &.dark{
+        background-color: $dark;
+        color: white;
+    }
+
   }
