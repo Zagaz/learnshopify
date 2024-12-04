@@ -1,0 +1,115 @@
+{%  style  %}  
+    .cart{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+    .cart-header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .cart-items{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .cart-item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border: 1px solid #e0e0e0;
+        padding: 20px;
+        border-radius: 5px;
+    }
+    .cart-item img{
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+    .cart-item-title{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .cart-item-description{
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .cart-item-price{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .cart-item-button-wrapper{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .cart-item-button{
+        background-color: #065c46;
+        color: white;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 10px 24px;
+        font-family: 'Roboto', sans-serif;
+    }
+    .remove-cart{
+        background-color: #f44336;
+    }
+    .cart-item-button:hover{
+        background-color: #282630;
+    }
+    .cart-item-button:active{
+        background-color: #065c46;
+    }
+    .cart-item-button:focus{
+        background-color: #065c46;
+    }
+    .cart-item-button:visited{
+        background-color: #065c46;
+    }
+    .cart-item-button:disabled{
+        background-color: #
+
+
+{% endstyle %}
+
+
+<div class="cart">
+    <div class="cart-header">
+        <h1>Your Cart</h1>
+    </div>
+    <div class="cart-items">
+       
+         {% for item in cart.items %}
+          <div class="cart-item">
+                <img src="{{ item.image.src | img_url: 'medium' }}" alt="{{ item.image.alt }}" width="" height="">
+                <h2 class="cart-item-title">{{ item.title }}</h2>
+                <p  class="cart-item-description">{{ item.description }}</p>
+                <h3 class="cart-item-price" > {{ item.price | money }}</h3>
+                <div class="cart-item-button-wrapper">
+                 <form action="/cart/change" method="post">
+                      <input type="hidden" name="id" value="{{ item.variant.id }}" />
+                      <input type="hidden" name="quantity" value="0" />
+                      <button type="submit" class="cart-item-button remove-cart"><i class="fas fa-trash-alt"></i> Remove from Cart</button>
+                 </form>
+                </div>
+          </div>
+         {% endfor %}
+
+         </div>
+
+      
+</div>

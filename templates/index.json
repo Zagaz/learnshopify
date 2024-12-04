@@ -9,14 +9,7 @@
  */
 {
   "sections": {
-    "example-section": {
-      "type": "main-index",
-      "settings": {}
-    },
-    "main-index-section": {
-      "type": "example-section",
-      "settings": {}
-    },
+  
     "collection-alpha": {
       "type": "collection-alpha",
       "settings": {
@@ -25,8 +18,8 @@
     },
   },
   "order": [
-    "example-section",
-    "main-index-section",
+   
     "collection-alpha"
-  ]
+  ],
+  
 }

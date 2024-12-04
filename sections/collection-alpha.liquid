@@ -73,11 +73,9 @@ font-family: 'Roboto', sans-serif;
               <form action="/cart/add" method="post">
               <a href="{{ product.url }}" class="card-button view-products"><i class="fas fa-eye"></i> View Product </a>
               <div class="add-cart-wrapper">
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                <button type="submit" class="card-button add-cart">
-                  <i class="fas fa-shopping-cart"></i>
-      
-                   Add to cart  </button>
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+                <input type="hidden" name="quantity" value="1" />
+                <button type="submit" class="card-button add-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
               </div>
                 {% comment %} view product {% endcomment %}
       
