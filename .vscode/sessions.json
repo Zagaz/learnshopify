@@ -8,7 +8,7 @@
     "default": [
       {
         "name" : "🛒Shopify",
-        "autoExecuteCommands": true,
+        "autoExecuteCommands": false,
         "icon" : "code",
         "commands": [
           "shopify theme pull"
@@ -16,7 +16,7 @@
       },
       {
         "name": "Git",
-        "autoExecuteCommands": true,
+        "autoExecuteCommands": false,
         "icon": "logo-github",
         "color": "terminal.ansiYellow",
         "commands": [
@@ -30,7 +30,7 @@
         "icon": "terminal-linux",
         "color" :"terminal.ansiGreen",
         "commands": [
-          "pmd"
+          "pwd"
         ]
       }
       
