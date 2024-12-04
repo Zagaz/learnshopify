@@ -16,10 +16,17 @@
     "main-index-section": {
       "type": "example-section",
       "settings": {}
-    }
+    },
+    "collection-alpha": {
+      "type": "collection-alpha",
+      "settings": {
+        "title": "Alpha Collection"
+      }
+    },
   },
   "order": [
     "example-section",
-    "main-index-section"
+    "main-index-section",
+    "collection-alpha"
   ]
 }
