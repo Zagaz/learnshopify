@@ -1,0 +1,101 @@
+{%  style  %} 
+    main{
+font-family: 'Roboto', sans-serif;
+    }
+    .cards-container{
+      display: flex;
+
+   
+      justify-content: space-around;
+    }
+
+    .card{
+      min-width: 300px;
+      max-width: 350px;
+    }
+    .card-button{
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 10px 24px;
+      font-family: 'Roboto', sans-serif;
+      color: white;
+    }
+    .card-button-wrapper{
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .add-cart{
+      background-color: #065c46 !important;
+    }
+    .view-products{
+      background-color: #282630 !important;
+    }
+    form{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+{% endstyle %}
+
+{% comment %} Number of pages is odd num_page -1 {% endcomment %}
+ 
+ {%  assign num_pages =   2 %}
+ 
+ {% if num_pages < 3 %}
+  
+  {% assign num_pages =   3 %}
+  
+  {% endif %}
+
+  <div class="collection-alpha">
+
+    <div class="container">
+    
+      <div class="cards-container">
+      {% paginate collections.all.products by num_pages %}
+      
+        {% for product in collections.all.products %}
+          <div class="card">
+            <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}" width="" height="">
+            <h2 class="card-title">{{ product.title }}</h2>
+            <p  class="card-description">{{ product.description }}</p>
+            <h3 class="card-price" > {{ product.price | money }}</h3>
+            <div class="card-button-wrapper">
+              <form action="/cart/add" method="post">
+              <a href="{{ product.url }}" class="card-button view-products"><i class="fas fa-eye"></i> View Product </a>
+              <div class="add-cart-wrapper">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <button type="submit" class="card-button add-cart">
+                  <i class="fas fa-shopping-cart"></i>
+      
+                   Add to cart  </button>
+              </div>
+                {% comment %} view product {% endcomment %}
+      
+      
+              </form>
+      
+      
+      
+            </div>
+      
+          </div>
+          
+        {% endfor %}
+      {% endpaginate %}
+      </div>
+    </div>
+
+  </div>
+  
+
+    
