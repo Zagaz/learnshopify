@@ -9,17 +9,12 @@
  */
 {
   "sections": {
-  
     "collection-alpha": {
       "type": "collection-alpha",
-      "settings": {
-        "title": "Alpha Collection"
-      }
-    },
+      "settings": {}
+    }
   },
   "order": [
-   
     "collection-alpha"
-  ],
-  
+  ]
 }

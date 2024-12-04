@@ -66,13 +66,8 @@ font-family: 'Roboto', sans-serif;
 {% comment %} Number of pages is odd num_page -1 {% endcomment %}
  
  {%  assign num_pages =   6 %}
- 
-
-
   <div class="collection-alpha">
-
     <div class="container">
-    
       <div class="cards-container">
       {% paginate collections.all.products by 6%}
       
@@ -90,17 +85,9 @@ font-family: 'Roboto', sans-serif;
                 <input type="hidden" name="quantity" value="1" />
                 <button type="submit" class="card-button add-cart"><i class="fas fa-cart-plus"></i> Add to Cart</button>
               </div>
-                {% comment %} view product {% endcomment %}
-      
-
               </form>
-      
-      
-      
             </div>
-      
           </div>
-          
         {% endfor %}
       {% endpaginate %}
       </div>
