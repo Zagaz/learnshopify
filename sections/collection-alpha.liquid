@@ -1,35 +1,111 @@
-    <div class="container">
-      <div class="cards-container">
+{%  style  %} 
+    main{
+font-family: 'Roboto', sans-serif;
+    }
+    .cards-container{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 5px;
+    }
+    .card{
+      border: 1px solid #e0e0e0;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    .card img{
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    .card-title{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card-description{
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .card-price{
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .card-button-wrapper{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .card-button{
+      background-color: #065c46;
+      color: white;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 10px 24px;
+      font-family: 'Roboto', sans-serif;
+    }
+    .add-cart-wrapper{
+      display: block;
+    }
+    .card-button.add-cart{
+    
+    }
+    .card-button.view-products{
+      display: inline-block;
+    }
+    .card:hover .add-cart-wrapper{
+      
+    }
 
-      {% paginate collections.all.products by ver%}
+{% endstyle %}
+
+{% comment %} Number of pages is odd num_page -1 {% endcomment %}
+ 
+ {%  assign num_pages =   6 %}
+ 
+
+
+  <div class="collection-alpha">
+
+    <div class="container">
+    
+      <div class="cards-container">
+      {% paginate collections.all.products by 6%}
       
         {% for product in collections.all.products %}
-          <div class="card vertical">
-            <img class="card-img" src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}" width="" height="">
+          <div class="card">
+            <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}" width="" height="">
             <h2 class="card-title">{{ product.title }}</h2>
             <p  class="card-description">{{ product.description }}</p>
             <h3 class="card-price" > {{ product.price | money }}</h3>
-            <div class="card-buttons-wrapper">
 
-              <a href="{{ product.url }}" class="button info view-product"> <i class="fa-solid fa-magnifying-glass"></i> Details</a>
-              
-                <div class="bt-add-cart">
-                  <form action="/cart/add" method="post">
-                    <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
-               <button type="submit" class="button success add-cart"><i class="fa-solid fa-shopping-cart"></i> Buy</button>
-                    
-                  </form>
-                  
+            {% comment %} Add to cart {% endcomment %}
+             
+            <div class="buttons">
+              <div class="card-button-wrapper">
+                <a href="{{ product.url }}" class="button card-button view-products">View Product</a>
               </div>
-         
+              <div class="add-cart-wrapper">
+                <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <input type="hidden" name="quantity" value="1">
+                <button type="submit">Add to Cart</button>
+            </form>
+            
+              </div> 
+
             </div>
+          
+      
           </div>
+          
         {% endfor %}
       {% endpaginate %}
       </div>
     </div>
 
-
-  
-
-    
+  </div>
