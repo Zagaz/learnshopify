@@ -1,0 +1,128 @@
+.button {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 10px 24px;
+  font-family: "Roboto", sans-serif;
+}
+.button.primary {
+  background-color: #007bff;
+  color: white;
+}
+.button.secondary {
+  background-color: #dc3545;
+  color: white;
+}
+.button.success {
+  background-color: #28a745;
+  color: white;
+}
+.button.danger {
+  background-color: #dc3545;
+  color: white;
+}
+.button.warning {
+  background-color: #ffc107;
+  color: white;
+}
+.button.info {
+  background-color: #17a2b8;
+  color: white;
+}
+.button.light {
+  background-color: #f8f9fa;
+  color: white;
+}
+.button.dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 20px;
+  border-radius: 5px;
+}
+.card .card-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 20px;
+}
+.card .card-title {
+  width: inherit;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.card .card-description {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.card .card-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  align-self: center;
+  margin-bottom: 20px;
+}
+.card .card-buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card .card-buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.card.vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", "Arial", "Helvetica", "sans-serif";
+  font-weight: 700;
+  color: #333;
+}
+
+p {
+  font-family: "Roboto", "Arial", "Helvetica", "sans-serif";
+  font-weight: 400;
+  color: #333;
+}/*# sourceMappingURL=style.css.map */

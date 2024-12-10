@@ -1,0 +1,47 @@
+@import 'colors';
+.button{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 24px;
+    font-family: 'Roboto', sans-serif;
+
+    &.primary{
+        background-color: $primary;
+        color: white;
+    }
+    &.secondary{
+        background-color: $danger;
+        color: white;
+    }
+    &.success{
+        background-color: $success;
+        color: white;
+    }
+    &.danger{
+        background-color: $danger;
+        color: white;
+    }
+    &.warning{
+        background-color: $warning;
+        color: white;
+    }
+    &.info{
+        background-color: $info;
+        color: white;
+    }
+    &.light{
+        background-color: $light;
+        color: white;
+    }
+    &.dark{
+        background-color: $dark;
+        color: white;
+    }
+
+  }
