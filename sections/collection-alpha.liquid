@@ -1,111 +1,168 @@
-{%  style  %} 
-    main{
-font-family: 'Roboto', sans-serif;
-    }
-    .cards-container{
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 5px;
-    }
-    .card{
-      border: 1px solid #e0e0e0;
-      padding: 20px;
-      border-radius: 5px;
-    }
-    .card img{
-      width: 100%;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    .card-title{
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .card-description{
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-    .card-price{
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-    .card-button-wrapper{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-    .card-button{
-      background-color: #065c46;
-      color: white;
-      border: none;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 5px;
-      padding: 10px 24px;
-      font-family: 'Roboto', sans-serif;
-    }
-    .add-cart-wrapper{
-      display: block;
-    }
-    .card-button.add-cart{
+{% style %}
+/* css  Color variables like bootstrap*/
+:root{
+  --primary-color: #065c46;
+  --secondary-color: #f8f9fa;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --white-color: #ffffff;
+  --black-color: #000000;
+
+}
+
+
+  main {
+    font-family: 'Roboto', sans-serif;
     
-    }
-    .card-button.view-products{
-      display: inline-block;
-    }
-    .card:hover .add-cart-wrapper{
-      
-    }
+  }
+  // Backgrounds
+  .bg-primary {
+    background-color: var(--primary-color !important);
+  }
+  .bg-secondary {
+    background-color: var(--secondary-color);
+  }
+  .bg-success {
+    background-color: var(--success-color);
+  }
+  .bg-danger {
+    background-color: var(--danger-color);
+  }
+  .bg-warning {
+    background-color: var(--warning-color);
+  }
+  .bg-info {
+    background-color: var(--info-color);
+  }
+  .bg-light {
+    background-color: var(--light-color);
+  }
+  .bg-dark {
+    background-color: var(--dark-color);
+  }
+
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+  }
+  .card {
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .card-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .card-description {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .card-price {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .card-button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .card-button {
+    background-color: #065c46;
+    color: white;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 24px;
+    font-family: 'Roboto', sans-serif;
+  }
+  .add-cart-wrapper {
+    display: block;
+  }
+  .card-button.add-cart {
+  }
+  .card-button.view-products {
+    display: inline-block;
+  }
+  .card:hover .add-cart-wrapper {
+  }
+  .buttons{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .button {
+
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 24px;
+    font-family: 'Roboto', sans-serif;
+ 
+
+  }
 
 {% endstyle %}
 
 {% comment %} Number of pages is odd num_page -1 {% endcomment %}
- 
- {%  assign num_pages =   6 %}
- 
 
+{% assign num_pages = 6 %}
 
-  <div class="collection-alpha">
-
-    <div class="container">
-    
-      <div class="cards-container">
-      {% paginate collections.all.products by 6%}
-      
+<div class="collection-alpha">
+  <div class="container">
+    <div class="cards-container">
+      {% paginate collections.all.products by 6 %}
         {% for product in collections.all.products %}
           <div class="card">
-            <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.featured_image.alt }}" width="" height="">
+            <img
+              src="{{ product.featured_image.src | img_url: 'medium' }}"
+              alt="{{ product.featured_image.alt }}"
+              width=""
+              height=""
+            >
             <h2 class="card-title">{{ product.title }}</h2>
-            <p  class="card-description">{{ product.description }}</p>
-            <h3 class="card-price" > {{ product.price | money }}</h3>
+            <p class="card-description">{{ product.description }}</p>
+            <h3 class="card-price">{{ product.price | money }}</h3>
 
             {% comment %} Add to cart {% endcomment %}
-             
+
             <div class="buttons">
               <div class="card-button-wrapper">
-                <a href="{{ product.url }}" class="button card-button view-products">View Product</a>
+                <a href="{{ product.url }}" class="button bg-info ">View Product</a>
               </div>
               <div class="add-cart-wrapper">
                 <form method="post" action="/cart/add">
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                <input type="hidden" name="quantity" value="1">
-                <button type="submit">Add to Cart</button>
-            </form>
-            
-              </div> 
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <input type="hidden" name="quantity" value="1">
+                  <button class="button bg-success" type="submit">Add to Cart</button>
+                </form>
+              </div>
 
             </div>
-          
-      
           </div>
-          
         {% endfor %}
       {% endpaginate %}
-      </div>
     </div>
-
   </div>
+</div>
